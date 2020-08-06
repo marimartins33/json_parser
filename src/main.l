@@ -1,7 +1,8 @@
 
 %{
-#include <stdlib.h>
-void yyerror(char *);
+#include <stdlib.h> 
+
+void yyerror(char *c);
 
 #include "y.tab.h"
 
@@ -10,7 +11,9 @@ void yyerror(char *);
 
 %%
 
-
+\{ {return '{';}
+\} {return '}';}
+[\n] {return '\n';}
 
 %%
 
