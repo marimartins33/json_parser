@@ -1,5 +1,3 @@
-
-
 %{
 #include <stdio.h>
   #include <stdlib.h>
@@ -7,12 +5,13 @@ void yyerror(char *c);
 int yylex(void);
 %}
 
-%token '{' '}' ':' '"'  INT STR '\n'
+%token '{' '}' ':' '"'  INT STR FLT '\n'
 
 %%
 
 S:
  O '\n' {printf("VALIDO\n");}
+;
 
 O: 
   '{' C '}' {}
@@ -36,12 +35,13 @@ V:
   | O {}
   | STR {}
   | '"'STR'"'{}
+  | FLT {}
 ; 
 
 
 %%
 
-void yyerror(char *s) {
+void yyerror(char *s) {printf("INVALIDO\n");
 }
 
 int main() {

@@ -13,6 +13,12 @@ void yyerror(char *c);
 
 \{ {return '{';}
 \} {return '}';}
+\: {return ':';}
+\" {return '"';}
+[0-9]+ {return INT;}
+[A-za-z0-9]+ {return STR;}
+[0-9]+[.][0-9]= {return FLT;}
+. ;
 [\n] {return '\n';}
 
 %%
